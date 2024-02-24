@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    *{
+      font-family: Arial, Helvetica, sans-serif;
+      font-weight: 550;
+      font-size: x-large;
+      margin: 0;padding: 0;box-sizing: border-box;
+  
+  }
+  .button {
+      width: 52.7px;
+      height: 42px;
+      font-size: 25px;
+      margin: 2px;
+      cursor: pointer;
+      border: white solid ;
+      border-radius: 40px;
+  }
+  #eql{
+      background-color: gold;
+  }
+  .rslt {
+      width: 239px;
+      margin: 5px;
+      font-size: 25px;
+      padding: 5px;
+      border:solid blanchedalmond ;
+      border-radius: 3px;
+      margin-left: 15px;
+  }
+  body{
+      background-color: #8EC5FC;
+      background-image: linear-gradient(62deg, #8EC5FC 0%, #E0C3FC 100%);
+      background-repeat: no-repeat;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+  }
+  #outer-div{
+      width: 272.4px;
+      background: #000;
+      height: 350px;
+      margin-top: 170px;
+      padding-top: 37px;
+      border:1px solid blanchedalmond;
+      border-radius: 9px;
+  }
+  .btn-inp{
+      margin-left: 8.2px;
+      padding-left: 2px;
+      padding-top: 10px;
+      margin-top:0px;
+      width: 255px;
+      height:250px;
+      border: solid blanchedalmond 2px;
+      border-radius: 0.8px 0.8px 5px 5px;
+  
+  }
+  
+  
+  </style>
+</head>
+<body>
+    <div id="outer-div">
+    <input class="rslt" id="result"/>
+        <br>
+        <div class="btn-inp">
+        <input class="button" type="button" value="AC" onclick="clean()"/>
+        <input class="button" type="button" value="del" onclick="back()"/>
+        <input class="button" type="button" value="/" onclick="insert('/')"/>
+        <input class="button" type="button" value="*" onclick="insert('*')"/>
+        <br>
+        <input class="button" type="button" value="7" onclick="insert('7')"/>
+        <input class="button" type="button" value="8" onclick="insert('8')"/>
+        <input class="button" type="button" value="9" onclick="insert('9')"/>
+        <input class="button" type="button" value="-" onclick="insert('-')"/>
+        <br>
+        <input class="button" type="button" value="4" onclick="insert('4')"/>
+        <input class="button" type="button" value="5" onclick="insert('5')"/>
+        <input class="button" type="button" value="6" onclick="insert('6')"/>
+        <input class="button" type="button" value="+" onclick="insert('+')"/>
+        <br>
+        <input class="button" type="button" value="1" onclick="insert('1')"/>
+        <input class="button" type="button" value="2" onclick="insert('2')"/>
+        <input class="button" type="button" value="3" onclick="insert('3')"/>
+        <input id="eql" class="button" type="button" value="=" onclick="equal()"/>
+        <br>
+        <input class="button" type="button" value="0" onclick="insert('0')"/>
+        <input class="button" type="button" value="00" onclick="insert('00')"/>
+        <input class="button" type="button" value="." onclick="insert('.')"/>
+        </div>
+        </div>
+        <script >
+          function insert(num) {
+            document.getElementById('result').value = document.getElementById('result').value+num;
+          }
+          function clean() {
+            document.getElementById('result').value = "";
+          }
+          function back() {
+            var exp = document.getElementById('result').value;
+            document.getElementById('result').value = exp.substring(0, exp.length-1);
+          }
+          function equal() {
+            try {
+                var exp = document.getElementById('result').value;
+                if(exp) {
+                    document.getElementById('result').value = eval(exp);
+                }
+            } catch(e) {
+                document.getElementById('result').value = "Error";
+            }
+          }
+        </script>
+</body>
+</html>
+
